@@ -27,19 +27,19 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Start Redis Server (default configuration)**
   
-  ```
+  ```bash
   redis-server
   ```
 
 - **Connect to Redis CLI**
   
-  ```
+  ```bash
   redis-cli -h hostname -p port
   ```
 
 - **Start Redis Server with a custom configuration file**
   
-  ```
+  ```bash
   redis-server path/redis.conf
   ```
 
@@ -51,19 +51,19 @@ A comprehensive guide to Redis commands and configurations.
   
   Default: 16 databases (set in redis.conf)
   
-  ```
+  ```bash
   databases 16
   ```
 
 - **Select a database index**
   
-  ```
+  ```bash
   select index
   ```
   
   Example:
   
-  ```
+  ```bash
   select 0
   select 1
   ```
@@ -76,26 +76,26 @@ A comprehensive guide to Redis commands and configurations.
   
   Overwrites if key already exists
   
-  ```
+  ```bash
   set key value
   ```
   
   Example:
   
-  ```
+  ```bash
   set username "john_doe"
   set counter 100
   ```
 
 - **Get the value of a key**
   
-  ```
+  ```bash
   get key
   ```
   
   Example:
   
-  ```
+  ```bash
   get username
   ```
 
@@ -103,13 +103,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Returns 1 if exists, 0 if does not exist
   
-  ```
+  ```bash
   exists key
   ```
   
   Example:
   
-  ```
+  ```bash
   exists username
   ```
 
@@ -117,13 +117,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Returns 1 if deleted, 0 if not found
   
-  ```
+  ```bash
   del key [key ...]
   ```
   
   Example:
   
-  ```
+  ```bash
   del username
   del key1 key2 key3
   ```
@@ -132,26 +132,26 @@ A comprehensive guide to Redis commands and configurations.
   
   Creates key if it does not exist
   
-  ```
+  ```bash
   append key value
   ```
   
   Example:
   
-  ```
+  ```bash
   append message "Hello"
   append message " World"
   ```
 
 - **List keys matching a given pattern**
   
-  ```
+  ```bash
   keys pattern
   ```
   
   Example:
   
-  ```
+  ```bash
   keys *
   keys user:*
   keys *name*
@@ -165,13 +165,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Starting at the given offset
   
-  ```
+  ```bash
   setrange key offset value
   ```
   
   Example:
   
-  ```
+  ```bash
   set greeting "Hello World"
   setrange greeting 6 "Redis"
   ```
@@ -180,13 +180,13 @@ A comprehensive guide to Redis commands and configurations.
   
   By start and end index
   
-  ```
+  ```bash
   getrange key start end
   ```
   
   Example:
   
-  ```
+  ```bash
   getrange greeting 0 4
   getrange greeting -5 -1
   ```
@@ -197,25 +197,25 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Set multiple key-value pairs**
   
-  ```
+  ```bash
   mset key value [key value ...]
   ```
   
   Example:
   
-  ```
+  ```bash
   mset username "john" email "john@example.com" age 25
   ```
 
 - **Get values of multiple keys**
   
-  ```
+  ```bash
   mget key [key ...]
   ```
   
   Example:
   
-  ```
+  ```bash
   mget username email age
   ```
 
@@ -227,13 +227,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Time in seconds
   
-  ```
+  ```bash
   expire key seconds
   ```
   
   Example:
   
-  ```
+  ```bash
   expire session:abc123 3600
   ```
 
@@ -241,13 +241,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Time in seconds
   
-  ```
+  ```bash
   setex key seconds value
   ```
   
   Example:
   
-  ```
+  ```bash
   setex token:xyz 7200 "secret_token_value"
   ```
 
@@ -255,13 +255,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Time in seconds
   
-  ```
+  ```bash
   ttl key
   ```
   
   Example:
   
-  ```
+  ```bash
   ttl session:abc123
   ```
   
@@ -276,51 +276,51 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Increment the integer value of a key by one**
   
-  ```
+  ```bash
   incr key
   ```
   
   Example:
   
-  ```
+  ```bash
   incr page_views
   incr visitor_count
   ```
 
 - **Decrement the integer value of a key by one**
   
-  ```
+  ```bash
   decr key
   ```
   
   Example:
   
-  ```
+  ```bash
   decr stock_count
   ```
 
 - **Increment by the given amount**
   
-  ```
+  ```bash
   incrby key increment
   ```
   
   Example:
   
-  ```
+  ```bash
   incrby score 10
   incrby balance 500
   ```
 
 - **Decrement by the given amount**
   
-  ```
+  ```bash
   decrby key increment
   ```
   
   Example:
   
-  ```
+  ```bash
   decrby stock 5
   decrby credits 100
   ```
@@ -331,7 +331,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Remove all keys from the current database**
   
-  ```
+  ```bash
   flushdb
   ```
   
@@ -339,7 +339,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Remove all keys from all databases**
   
-  ```
+  ```bash
   flushall
   ```
   
@@ -349,13 +349,13 @@ A comprehensive guide to Redis commands and configurations.
   
   From file to specific database
   
-  ```
+  ```bash
   redis-cli -h hostname -p port -n database-number --pipe < filename
   ```
   
   Example:
   
-  ```
+  ```bash
   redis-cli -h localhost -p 6379 -n 0 --pipe < backup.txt
   ```
 
@@ -365,7 +365,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Mark the start of a transaction block**
   
-  ```
+  ```bash
   multi
   ```
   
@@ -373,13 +373,13 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Execute all commands issued after MULTI**
   
-  ```
+  ```bash
   exec
   ```
   
   Example transaction:
   
-  ```
+  ```bash
   multi
   set key1 "value1"
   set key2 "value2"
@@ -389,7 +389,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Discard all commands issued after MULTI**
   
-  ```
+  ```bash
   discard
   ```
   
@@ -403,7 +403,7 @@ A comprehensive guide to Redis commands and configurations.
   
   In real time
   
-  ```
+  ```bash
   monitor
   ```
   
@@ -411,7 +411,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Get information and statistics about the server**
   
-  ```
+  ```bash
   info
   ```
   
@@ -424,7 +424,7 @@ A comprehensive guide to Redis commands and configurations.
   
   Filter by section:
   
-  ```
+  ```bash
   info server
   info memory
   info stats
@@ -434,13 +434,13 @@ A comprehensive guide to Redis commands and configurations.
   
   From redis.conf
   
-  ```
+  ```bash
   config get <key>
   ```
   
   Example:
   
-  ```
+  ```bash
   config get maxmemory
   config get databases
   config get *
@@ -452,7 +452,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Get the list of client connections**
   
-  ```
+  ```bash
   client list
   ```
   
@@ -465,19 +465,19 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Get the client ID for the current connection**
   
-  ```
+  ```bash
   client id
   ```
 
 - **Kill the connection of a client**
   
-  ```
+  ```bash
   client kill ip:port
   ```
   
   Example:
   
-  ```
+  ```bash
   client kill 192.168.1.100:52341
   ```
 
@@ -489,13 +489,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Set in redis.conf
   
-  ```
+  ```bash
   bind hostname
   ```
   
   Example:
   
-  ```
+  ```bash
   bind 127.0.0.1
   bind 0.0.0.0
   bind 192.168.1.100
@@ -505,7 +505,7 @@ A comprehensive guide to Redis commands and configurations.
   
   Set in redis.conf
   
-  ```
+  ```bash
   user default on +@connection
   ```
 
@@ -513,13 +513,13 @@ A comprehensive guide to Redis commands and configurations.
   
   With password authentication (set in redis.conf)
   
-  ```
+  ```bash
   user username on +@all ~* >password
   ```
   
   Example:
   
-  ```
+  ```bash
   user admin on +@all ~* >StrongPassword123
   user dev on +@read ~* >DevPass456
   ```
@@ -528,13 +528,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Using username and password
   
-  ```
+  ```bash
   auth username password
   ```
   
   Example:
   
-  ```
+  ```bash
   auth admin StrongPassword123
   ```
 
@@ -544,7 +544,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Synchronously save the dataset to disk**
   
-  ```
+  ```bash
   save
   ```
   
@@ -552,7 +552,7 @@ A comprehensive guide to Redis commands and configurations.
 
 - **Asynchronously save the dataset to disk**
   
-  ```
+  ```bash
   bgsave
   ```
   
@@ -562,7 +562,7 @@ A comprehensive guide to Redis commands and configurations.
   
   Set in redis.conf
   
-  ```
+  ```bash
   save <seconds> <total-changes>
   ```
   
@@ -570,7 +570,7 @@ A comprehensive guide to Redis commands and configurations.
   
   Example configurations:
   
-  ```
+  ```bash
   save 900 1      # After 900 seconds if at least 1 key changed
   save 300 10     # After 300 seconds if at least 10 keys changed
   save 60 10000   # After 60 seconds if at least 10000 keys changed
@@ -584,13 +584,13 @@ A comprehensive guide to Redis commands and configurations.
   
   Set in redis.conf
   
-  ```
+  ```bash
   maxmemory <memory-size>
   ```
   
   Example:
   
-  ```
+  ```bash
   maxmemory 256mb
   maxmemory 2gb
   maxmemory 100mb
@@ -600,7 +600,7 @@ A comprehensive guide to Redis commands and configurations.
   
   Set in redis.conf
   
-  ```
+  ```bash
   maxmemory-policy <policy>
   ```
   
@@ -640,7 +640,7 @@ A comprehensive guide to Redis commands and configurations.
   
   Example:
   
-  ```
+  ```bash
   maxmemory-policy allkeys-lru
   maxmemory-policy volatile-ttl
   ```

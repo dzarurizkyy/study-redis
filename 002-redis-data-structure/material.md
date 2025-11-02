@@ -28,13 +28,13 @@ The first element added is the first one removed.
 
 - **Push value to the left (head) of list**
   
-  ```
+  ```bash
   lpush queue value
   ```
   
   Example:
   
-  ```
+  ```bash
   lpush tasks "send email"
   # (integer) 1
   
@@ -49,13 +49,13 @@ The first element added is the first one removed.
 
 - **Remove and return value from the right (tail)**
   
-  ```
+  ```bash
   rpop queue
   ```
   
   Example:
   
-  ```
+  ```bash
   rpop tasks
   # "send email"  # First in, first out
   
@@ -75,13 +75,13 @@ The last element added is the first one removed.
 
 - **Push value to the stack (left side)**
   
-  ```
+  ```bash
   lpush stack value
   ```
   
   Example:
   
-  ```
+  ```bash
   lpush history "page1.html"
   # (integer) 1
   
@@ -96,13 +96,13 @@ The last element added is the first one removed.
 
 - **Pop value from the stack (left side)**
   
-  ```
+  ```bash
   lpop stack value
   ```
   
   Example:
   
-  ```
+  ```bash
   lpop history
   # "page3.html"  # Last in, first out
   
@@ -115,13 +115,13 @@ The last element added is the first one removed.
 
 - **Get elements from list within range**
   
-  ```
+  ```bash
   lrange queue/stack from until
   ```
   
   Example:
   
-  ```
+  ```bash
   lpush mylist "one" "two" "three" "four" "five"
   # (integer) 5
   
@@ -153,13 +153,13 @@ Sets are unordered collections of unique string elements. Duplicate elements are
 
 - **Add one or more members to a set**
   
-  ```
+  ```bash
   sadd key ...value
   ```
   
   Example:
   
-  ```
+  ```bash
   sadd tags "javascript" "redis" "database"
   # (integer) 3
   
@@ -172,26 +172,26 @@ Sets are unordered collections of unique string elements. Duplicate elements are
 
 - **Get the number of members in a set**
   
-  ```
+  ```bash
   scard key
   ```
   
   Example:
   
-  ```
+  ```bash
   scard tags
   # (integer) 5
   ```
 
 - **Get all members in a set**
   
-  ```
+  ```bash
   smembers key
   ```
   
   Example:
   
-  ```
+  ```bash
   smembers tags
   # 1) "redis"
   # 2) "javascript"
@@ -202,13 +202,13 @@ Sets are unordered collections of unique string elements. Duplicate elements are
 
 - **Remove one or more members from a set**
   
-  ```
+  ```bash
   srem key ...value
   ```
   
   Example:
   
-  ```
+  ```bash
   srem tags "golang"
   # (integer) 1
   
@@ -220,13 +220,13 @@ Sets are unordered collections of unique string elements. Duplicate elements are
   
   Between the first set and all the following sets
   
-  ```
+  ```bash
   sdiff key1 key2
   ```
   
   Example:
   
-  ```
+  ```bash
   sadd skills:alice "python" "javascript" "redis" "docker"
   sadd skills:bob "javascript" "golang" "redis"
   
@@ -240,13 +240,13 @@ Sets are unordered collections of unique string elements. Duplicate elements are
   
   Of all the given sets
   
-  ```
+  ```bash
   sinter key1 key2
   ```
   
   Example:
   
-  ```
+  ```bash
   sinter skills:alice skills:bob
   # 1) "javascript"
   # 2) "redis"
@@ -257,13 +257,13 @@ Sets are unordered collections of unique string elements. Duplicate elements are
   
   Of all the given sets
   
-  ```
+  ```bash
   sunion key1 key2
   ```
   
   Example:
   
-  ```
+  ```bash
   sunion skills:alice skills:bob
   # 1) "python"
   # 2) "javascript"
@@ -283,13 +283,13 @@ Hashes are data structures composed of field-value pairs (like a JSON object). U
 
 - **Set field(s) in a hash**
   
-  ```
+  ```bash
   hset hashname ...key value
   ```
   
   Example:
   
-  ```
+  ```bash
   hset user:1001 name "John Doe" email "john@example.com" age 30
   # (integer) 3
   
@@ -302,13 +302,13 @@ Hashes are data structures composed of field-value pairs (like a JSON object). U
 
 - **Get value of a field in a hash**
   
-  ```
+  ```bash
   hget hashname key
   ```
   
   Example:
   
-  ```
+  ```bash
   hget user:1001 name
   # "John Doe"
   
@@ -321,13 +321,13 @@ Hashes are data structures composed of field-value pairs (like a JSON object). U
 
 - **Get all fields and values in a hash**
   
-  ```
+  ```bash
   hgetall hashname
   ```
   
   Example:
   
-  ```
+  ```bash
   hgetall user:1001
   # 1) "name"
   # 2) "John Doe"
@@ -341,13 +341,13 @@ Hashes are data structures composed of field-value pairs (like a JSON object). U
 
 - **Increment or decrement a field value in a hash**
   
-  ```
+  ```bash
   hincrby hashname key increment-value/decrement-value
   ```
   
   Example:
   
-  ```
+  ```bash
   hset product:2001 stock 25
   # (integer) 1
   
@@ -372,13 +372,13 @@ Sorted Sets are similar to Sets but each member has a numeric score. Members are
 
 - **Add a member with a specific score to a sorted set**
   
-  ```
+  ```bash
   zadd key score member
   ```
   
   Example:
   
-  ```
+  ```bash
   zadd leaderboard 100 "player1"
   # (integer) 1
   
@@ -395,26 +395,26 @@ Sorted Sets are similar to Sets but each member has a numeric score. Members are
 
 - **Get the number of members in a sorted set**
   
-  ```
+  ```bash
   zcard key
   ```
   
   Example:
   
-  ```
+  ```bash
   zcard leaderboard
   # (integer) 5
   ```
 
 - **Get all members and their scores in ascending order**
   
-  ```
+  ```bash
   zrange key 0 -1 withscores
   ```
   
   Example:
   
-  ```
+  ```bash
   zrange leaderboard 0 -1 withscores
   # 1) "player1"
   # 2) "100"
@@ -432,13 +432,13 @@ Sorted Sets are similar to Sets but each member has a numeric score. Members are
   
   From lowest to highest score
   
-  ```
+  ```bash
   zrange key start-index end-index
   ```
   
   Example:
   
-  ```
+  ```bash
   # Get top 3 lowest scores
   zrange leaderboard 0 2
   # 1) "player1"
@@ -456,13 +456,13 @@ Sorted Sets are similar to Sets but each member has a numeric score. Members are
   
   From minimum to maximum score
   
-  ```
+  ```bash
   zrange key minimum-score maximum-score byscore
   ```
   
   Example:
   
-  ```
+  ```bash
   # Get players with scores between 150 and 250
   zrange leaderboard 150 250 byscore
   # 1) "player5"
@@ -477,13 +477,13 @@ Sorted Sets are similar to Sets but each member has a numeric score. Members are
 
 - **Remove one or more members from a sorted set**
   
-  ```
+  ```bash
   zrem key ...member
   ```
   
   Example:
   
-  ```
+  ```bash
   zrem leaderboard "player1"
   # (integer) 1
   
@@ -493,13 +493,13 @@ Sorted Sets are similar to Sets but each member has a numeric score. Members are
 
 - **Remove members within a specific score range**
   
-  ```
+  ```bash
   zremrangebyscore member minimum-score maximum-score
   ```
   
   Example:
   
-  ```
+  ```bash
   # Remove all players with scores below 100
   zremrangebyscore leaderboard 0 100
   # (integer) 1
@@ -519,13 +519,13 @@ Geospatial structures are used to store geographic locations as coordinates. Ide
 
 - **Add location coordinates to a geospatial key**
   
-  ```
+  ```bash
   geoadd key longitude latitude member
   ```
   
   Example:
   
-  ```
+  ```bash
   # Add locations in Jakarta
   geoadd stores 106.8456 -6.2088 "Store A"
   # (integer) 1
@@ -540,13 +540,13 @@ Geospatial structures are used to store geographic locations as coordinates. Ide
 
 - **Get position (longitude and latitude) of a member**
   
-  ```
+  ```bash
   geopos key member
   ```
   
   Example:
   
-  ```
+  ```bash
   geopos stores "Store A"
   # 1) 1) "106.84559822082519531"
   #    2) "-6.20880014472875656"
@@ -560,13 +560,13 @@ Geospatial structures are used to store geographic locations as coordinates. Ide
 
 - **Get the distance between two members**
   
-  ```
+  ```bash
   geodist key member1 member2 distance-unit
   ```
   
   Example:
   
-  ```
+  ```bash
   # Distance in kilometers
   geodist stores "Store A" "Store B" km
   # "4.0875"
@@ -582,13 +582,13 @@ Geospatial structures are used to store geographic locations as coordinates. Ide
 
 - **Search for members within a given radius**
   
-  ```
+  ```bash
   geosearch key fromlonlat longitude latitude BYRADIUS distance distance-unit
   ```
   
   Example:
   
-  ```
+  ```bash
   # Find stores within 5km of a specific coordinate
   geosearch stores fromlonlat 106.8456 -6.2088 byradius 5 km
   # 1) "Store A"
@@ -621,7 +621,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Add an entry to a stream**
   
-  ```
+  ```bash
   xadd stream-name * key value
   ```
   
@@ -629,7 +629,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Example:
   
-  ```
+  ```bash
   xadd events * action "user_login" user_id "1001" timestamp "2025-11-02T10:30:00"
   # "1730548200000-0"
   
@@ -642,7 +642,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Read entries from a stream**
   
-  ```
+  ```bash
   xread streams stream-name 0
   ```
   
@@ -650,7 +650,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Example:
   
-  ```
+  ```bash
   xread streams events 0
   # 1) 1) "events"
   #    2) 1) 1) "1730548200000-0"
@@ -673,7 +673,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Number of messages to read
   
-  ```
+  ```bash
   xread count value streams stream-name 0
   ```
   
@@ -681,7 +681,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Example:
   
-  ```
+  ```bash
   # Read only 2 entries
   xread count 2 streams events 0
   # 1) 1) "events"
@@ -701,7 +701,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Block and wait for new entries**
   
-  ```
+  ```bash
   xread block 0 streams stream-name last-seen-id
   ```
   
@@ -709,7 +709,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Example:
   
-  ```
+  ```bash
   # Wait for new entries (blocks until new data arrives)
   xread block 0 streams events $
   # (blocks here until new entry is added)
@@ -732,7 +732,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Create a new consumer group for a stream**
   
-  ```
+  ```bash
   xgroup create stream-name group-name $ mkstream
   ```
   
@@ -740,7 +740,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Example:
   
-  ```
+  ```bash
   # Create a consumer group for processing orders
   xgroup create orders order-processors $ mkstream
   # OK
@@ -755,7 +755,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Create a new consumer within an existing consumer group**
   
-  ```
+  ```bash
   xgroup createconsumer stream-name group-name member-group-name
   ```
   
@@ -763,7 +763,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Example:
   
-  ```
+  ```bash
   # Create consumers in order-processors group
   xgroup createconsumer orders order-processors worker-1
   # (integer) 1
@@ -778,7 +778,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Read messages using a consumer group**
   
-  ```
+  ```bash
   xreadgroup group group-name member-group-name count 1 block 0 streams stream-name >
   ```
   
@@ -786,7 +786,7 @@ Streams are an append-only data structure that works like a log or event stream.
   
   Example:
   
-  ```
+  ```bash
   # Worker 1 reads from the group
   xreadgroup group order-processors worker-1 count 1 block 0 streams orders >
   # 1) 1) "orders"
@@ -822,20 +822,20 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Add messages to chat stream**
   
-  ```
+  ```bash
   xadd chat:room1 * user "alice" message "Hello everyone!" timestamp "10:30:00"
   xadd chat:room1 * user "bob" message "Hi Alice!" timestamp "10:30:15"
   ```
 
 - **Create consumer group for message delivery**
   
-  ```
+  ```bash
   xgroup create chat:room1 message-delivery $ mkstream
   ```
 
 - **Each client reads messages**
   
-  ```
+  ```bash
   xreadgroup group message-delivery client-alice count 10 streams chat:room1 >
   ```
 
@@ -843,14 +843,14 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Store product information**
   
-  ```
+  ```bash
   hset product:1001 name "Gaming Laptop" price "15000000" stock "50"
   hset product:1002 name "Wireless Mouse" price "250000" stock "200"
   ```
 
 - **Update stock after purchase**
   
-  ```
+  ```bash
   hincrby product:1001 stock -1
   hincrby product:1001 sold 1
   ```
@@ -859,7 +859,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Add player scores**
   
-  ```
+  ```bash
   zadd game:leaderboard 1500 "player123"
   zadd game:leaderboard 2300 "player456"
   zadd game:leaderboard 1800 "player789"
@@ -867,13 +867,13 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Get top 10 players**
   
-  ```
+  ```bash
   zrange game:leaderboard 0 9 rev withscores
   ```
 
 - **Get player rank**
   
-  ```
+  ```bash
   zrevrank game:leaderboard "player456"
   ```
 
@@ -881,14 +881,14 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Add restaurant locations**
   
-  ```
+  ```bash
   geoadd restaurants 106.8456 -6.2088 "Restaurant A"
   geoadd restaurants 106.8270 -6.1751 "Restaurant B"
   ```
 
 - **Find restaurants within 2km**
   
-  ```
+  ```bash
   geosearch restaurants fromlonlat 106.8456 -6.2088 byradius 2 km withdist
   ```
 
@@ -896,7 +896,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Add tasks to queue**
   
-  ```
+  ```bash
   lpush task:queue "send-email:user123"
   lpush task:queue "process-payment:order456"
   lpush task:queue "generate-report:monthly"
@@ -904,7 +904,7 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Worker processes tasks**
   
-  ```
+  ```bash
   rpop task:queue
   # Process the task
   ```
@@ -913,14 +913,14 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Store user session**
   
-  ```
+  ```bash
   setex session:abc123 3600 "user_id:1001"
   hset user:session:abc123 user_id "1001" login_time "10:30:00" ip "192.168.1.100"
   ```
 
 - **Check session validity**
   
-  ```
+  ```bash
   ttl session:abc123
   hgetall user:session:abc123
   ```
@@ -929,14 +929,14 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Track API requests**
   
-  ```
+  ```bash
   incr rate:api:user123
   expire rate:api:user123 60
   ```
 
 - **Check if limit exceeded**
   
-  ```
+  ```bash
   get rate:api:user123
   # If > 100, deny request
   ```
@@ -945,21 +945,21 @@ Streams are an append-only data structure that works like a log or event stream.
 
 - **Add tags to articles**
   
-  ```
+  ```bash
   sadd article:1001:tags "javascript" "redis" "tutorial"
   sadd article:1002:tags "python" "redis" "guide"
   ```
 
 - **Find common tags**
   
-  ```
+  ```bash
   sinter article:1001:tags article:1002:tags
   # 1) "redis"
   ```
 
 - **Find all unique tags**
   
-  ```
+  ```bash
   sunion article:1001:tags article:1002:tags
   ```
 
